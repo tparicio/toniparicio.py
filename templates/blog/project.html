@@ -1,0 +1,59 @@
+{% load static %}
+
+<div class="col s12 m4">
+    <div class="card medium">
+      <div class="card-image waves-effect waves-block waves-light">
+        {% if project.image %}
+          <img alt="{{ project }} Screenshot"
+               src="{{ project.image.url }}"
+               class="activator img-fluid">
+        {% else %}
+          <img alt="{{ project }} Screenshot"
+               src="{% static 'img/about/project.jpg' %}"
+               class="activator img-fluid">
+        {% endif %}
+      </div>
+      <div class="card-content">
+        <span class="card-title activator teal-text hoverline">
+          {{ project.name }}
+          <i class="fa fa-ellipsis-v right"></i>
+        </span>
+        <p>{{ project.description }}</p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title">
+          Achievements
+          <i class="fa fa-times right"></i>
+        </span>
+        <ul>
+          {% for achievement in project.achievements %}
+            <li>
+              {{ achievement.description }}
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="card-action text-right">
+          {% if project.url %}
+            <a aria-label="Visit {{ project }}"
+               href="{{ project.url }}"
+               target="_blank"
+               data-position="top"
+               data-tooltip="View Online"
+               class="btn-floating btn-large waves-effect waves-light tooltipped rounded-circle">
+               <i class="fa fa-external-link-alt fa-2x"></i>
+             </a>
+           {% endif %}
+           {% if project.github %}
+             <a aria-label="Visit the GitHub repo for {{ project }} project"
+                href="{{ project.github }}"
+                target="_blank"
+                data-position="top"
+                data-tooltip="View Source"
+                class="btn-floating btn-large waves-effect waves-light tooltipped rounded-circle">
+                <i class="fab fa-github fa-2x"></i>
+              </a>
+            {% endif %}
+          </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="row">
+    <a class="course" href="{{ course.link }}">
+      <div class="col s12 m3">
+        {% if course.image %}
+          <img src="{{ course.image.url }}"
+               class="responsive-img"
+               title="{{ course.name }}"
+               alt="{{ course.name }}">
+        {% endif %}
+      </div>
+      <div class="col s12 m8">
+        <h3>{{ course }}</h3>
+        <div>by {{ course.platform }}</div>
+      </div>
+    </a>
+</div>
