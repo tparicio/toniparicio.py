@@ -1,0 +1,9 @@
+{% load static %}
+
+<div class="col m2 s4 center-align">
+  <img alt="{{ skill }}"
+       title="{{ skill }}"
+       src="{% static 'img/about/skills/'|add:skill.name|lower|add:'.png' %}"
+       class="img-fluid responsive-img">
+  <span class="hide-on-small-only">{{ skill }}</span>
+</div>

@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-content">
+    <div class="row">
+      <div class="col m2 s12">
+        {% if item.enterprise.image %}
+          <a href="{{ item.enterprise.link }}" target="_blank">
+            <img alt="{{ item.enterprise }} logo" src="{{ item.enterprise.image.url }}" class="img-fluid center-block">
+          </a>
+        {% endif %}
+      </div>
+      <div class="col m10 s12">
+        <p>
+          <span class="card-title">
+            <a href="{{ item.enterprise.link }}" target="_blank" class="teal-text hoverline">{{ item.enterprise }}</a>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="role">{{ item.job }}</div>
+    <p>
+      <em class="grey-text">{{ item.description }}</em>
+    </p>
+    {{ item.text | safe }}
+  </div>
+  <div class="card-action">
+    <span>{{ item.started_at }} - {{ item.finished_at }} | {{ item.enterprise.city }}, {{ item.enterprise.state }}</span></div>
+</div>

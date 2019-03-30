@@ -1,0 +1,53 @@
+<div id="footer-social" class="container">
+  <div class="row">
+    <ul class="center-align">
+      {% for social in socials %}
+        <li class="list-inline-item">
+          <a href="{{ social.link }}"
+             class="btn-floating btn-large waves-effect waves-light bg-brand-color bg-transition tooltipped rounded-circle">
+            <i class="{{ social.icon }}"></i>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<footer class="page-footer bg-brand-color" style="padding-left: 16%;">
+  <div class="container">
+    <div class="row">
+      <div class="col l8 s12">
+        <h5 class="white-text brand">Toni Paricio</h5>
+        <hr/>
+        {% if quote %}
+          <blockquote class="container">
+            <div class="quote grey-text text-lighten-2">{{ quote }}</div>
+            <div class="right italic grey-text text-lighten-4">
+              <a class="book" href="{{ quote.book.link }}">{{ quote.book }}</a>
+              -
+              <a class="author" href="#">{{ quote.book.author }}</a>
+            </div>
+          </blockquote>
+        {% endif %}
+      </div>
+      <div class="col l2 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a href="{{ 'home' }}">Inicio</a></li>
+          <li><a href="{{ 'posts' }}">Posts</a></li>
+          <li><a href="{{ 'about' }}">Acerca</a></li>
+          <li><a href="{{ 'contact' }}">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal row center-align">
+      <a href="{{ 'terms' }}">Términos y condiciones de uso</a>
+      <a href="{{ 'privacy' }}">Política de privacidad</a>
+      <a href="{{ 'cookies' }}">Política de cookies</a>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2018 Toni Paricio. Todos los derechos reservados
+    </div>
+  </div>
+</footer>

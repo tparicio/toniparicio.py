@@ -1,0 +1,111 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+{% block title %}Portfolio de Toni Paricio{% endblock %}
+{% block description %}Información acerca de Toni Paricio. Trabajos, proyectos, habilidades, formación, cursos y redes sociales{% endblock %}
+
+{% block body %}
+
+  {% include "layouts/header.html" %}
+
+  <div id="about-section" class="row">
+    {% include 'layouts/aside.html' %}
+    <main class="col m10 s10">
+      <section id="about" class="section scrollspy">
+        <h3 class="page-title white-text teal">About</h3>
+        <div class="container flow-text">
+          <blockquote>
+            <h2>Ingeniero de Telecomunicaciones, programador y apasionado de la tecnología.</h2>
+          </blockquote>
+          <p>Siempre he buscado retos que me ayuden a mejorar, me gusta involucrarme en cualquier proyecto o tarea que pueda hacerme mejor programador. Mi objetivo es crear herramientas que resuelvan problemas y faciliten las tareas a otros.</p>
+          <p>Como desarrollador de software disfruto programando, sea cual sea el proyecto o el lenguaje. No solo es mi profesión sino mi pasión.</p>
+          <p>
+            <strong>Actualmente enfocado a</strong>:&nbsp;
+            <a aria-label="Navigate to the PHP homepage" href="https://www.php.net/">PHP</a>
+            &nbsp;<i class="fa fa-minus fa-rotate-90"></i>&nbsp;
+            <a aria-label="Navigate to the Symfony homepage" href="https://symfony.es/">Symfony</a>
+            &nbsp;<i class="fa fa-minus fa-rotate-90"></i>&nbsp;
+            <a aria-label="Navigate to the MongoDB homepage" href="https://www.mongodb.com/">MongoDB</a>
+          </p>
+        </div>
+      </section>
+      <section id="experience" class="section scrollspy">
+        <h3 class="page-title white-text teal">Experience</h3>
+        <div class="container">
+          {% for item in experience %}
+            {% include 'blog/experience.html' %}
+          {% endfor %}
+        </div>
+      </section>
+      <section id="projects" class="section scrollspy">
+        <h3 class="page-title white-text teal">Projects</h3>
+        <div class="container">
+          <div class="row">
+            {% for project in projects %}
+              {% include 'blog/project.html' %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      <section id="skills" class="section scrollspy">
+        <h3 class="page-title white-text teal">Skills</h3>
+        <div class="container">
+          {% for category in categories %}
+            {% include 'blog/category.html' %}
+          {% endfor %}
+        </div>
+      </section>
+      <section id="education" class="section scrollspy">
+        <h3 class="page-title white-text teal">Education</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-content">
+                  <p>
+                    <span class="card-title">
+                      <a href="http://upenn.edu" class="teal-text hoverline">Colegio Las Viñas</a></span></p>
+                  <p class="brown-text">Teruel, Aragón</p>
+                  <ul>
+                    <li>Educación Primaria</li>
+                    <li>Educación Secundaria</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-content">
+                  <p>
+                    <span class="card-title">
+                      <a href="https://eupt.unizar.es/" class="teal-text hoverline">Escuela Universitaria Politécnica de Teruel</a></span></p>
+                  <p class="brown-text">Teruel, Aragón</p>
+                  <ul>
+                    <li>Ingeniería Técnica de Telecomunicaciones (Sistemas Electrónicos)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <blockquote>
+              <h2>Courses</h2>
+            </blockquote>
+            <p>Soy un entusiasta alumno de cursos online, siempre tengo algún MOOC en proceso en plataformas como <a href="https://www.edx.org/es">edX</a></p>
+            {% for course in courses %}
+              {% include 'blog/course.html' %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section scrollspy full-height">
+        <h3 class="page-title white-text teal">Contact</h3>
+        <div class="container">
+          {% for social in socials %}
+            {% include 'blog/social.html' %}
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+  </div>
+{% endblock %}
