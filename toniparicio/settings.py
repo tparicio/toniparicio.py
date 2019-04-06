@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
+import environ
+
+# --- configure .env
+root = environ.Path(__file__) - 3           # three folder back (/a/b/c/ - 3 = /)
+env = environ.Env(DEBUG=(bool, False),)     # set default values and casting
+environ.Env.read_env()                      # reading .env file
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +28,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't5@)ya_jcmm$ju5*fy89u1pd^)yss5396fr#t3)xgq4w@7piro'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['toniparicio.local.com']
 
@@ -51,6 +59,7 @@ INSTALLED_APPS = [
     'apps.skills',
     'apps.quotes',
     'apps.socials',
+    'apps.registration',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +137,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -182,3 +195,14 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',                        # To keep the Browsable API
     'oauth2_provider.backends.OAuth2Backend',
 )
+
+LOGIN_REDIRECT_URL = reverse_lazy('blog:home')
+
+
+# --- EMAIL configuration
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_BACKEND = env('EMAIL_BACKEND')
