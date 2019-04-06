@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['toniparicio.local.com']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_assets',
     'django_summernote',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_framework_swagger',
     'oauth2_provider',
     'apps.blog',
     'apps.projects',
@@ -49,8 +51,6 @@ INSTALLED_APPS = [
     'apps.skills',
     'apps.quotes',
     'apps.socials',
-    'rest_framework',
-    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
@@ -129,10 +129,15 @@ USE_L10N = True
 USE_TZ = True
 
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -144,16 +149,19 @@ STATICFILES_FINDERS = [
     'django_assets.finders.AssetsFinder',
 ]
 
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# --- Assets routes
 
 ASSETS_ROOT = os.path.join(BASE_DIR, 'assets')
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
+
+# --- Media routes
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-# API versioning
+# --- API configuration
 REST_FRAMEWORK = {
     # When you enable API versioning, the request.version attribute will contain a string
     # that corresponds to the version requested in the incoming client request.
@@ -166,6 +174,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+
 
 # --- Specify the authentication backends
 

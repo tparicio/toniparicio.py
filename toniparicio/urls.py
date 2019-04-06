@@ -22,10 +22,10 @@ from rest_framework_swagger.views import get_swagger_view
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^', include('apps.blog.urls')),
-    url(r'^summernote/', include('django_summernote.urls')),
-    url(r'^api/$', get_swagger_view(title='Toni Paricio API')),
-    url(r'^api/(?P<version>(v1|v2))/', include('apps.quotes.urls')),
-    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),                                            # admin routes
+    url(r'^', include('apps.blog.urls')),                                       # apps routes
+    url(r'^summernote/', include('django_summernote.urls')),                    # text editor routes
+    url(r'^api/$', get_swagger_view(title='Toni Paricio API')),                 # API docs routes
+    url(r'^api/(?P<version>(v1|v2))/', include('apps.quotes.urls')),            # API routes
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),   # oauth routes
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)               # static routes
