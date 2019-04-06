@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-06 18:02+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/layouts/aside.html:10
+msgid "Software Developer"
+msgstr "Software Developer"
+
+#: templates/layouts/aside.html:15
+msgid "Navigate to the About section"
+msgstr "Navegar a la sección Sobre mí"
+
+#: templates/layouts/aside.html:21
+msgid "Navigate to the Experience section"
+msgstr "Navegador a la sección Experiencia"
+
+#: templates/layouts/aside.html:23
+msgid "Experience"
+msgstr "Experiencia"
+
+#: templates/layouts/aside.html:27
+msgid "Navigate to the Projects section"
+msgstr "Navegar a la sección Proyectos"
+
+#: templates/layouts/aside.html:29
+msgid "Projects"
+msgstr "Proyectos"
+
+#: templates/layouts/aside.html:32
+msgid "Navigate to the Skills section"
+msgstr "Navegar a la sección Habilidades"
+
+#: templates/layouts/aside.html:34
+msgid "Skills"
+msgstr "Skills"
+
+#: templates/layouts/aside.html:38
+msgid "Navigate to the Education section"
+msgstr "Navegar a la sección Formación"
+
+#: templates/layouts/aside.html:40
+msgid "Education"
+msgstr "Formación"
+
+#: templates/layouts/aside.html:44
+msgid "Navigate to the Contact section"
+msgstr "Navegar a la sección Contacto"
+
+#: templates/layouts/aside.html:46
+msgid "Contact"
+msgstr "Contacto"

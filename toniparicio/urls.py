@@ -22,10 +22,16 @@ from rest_framework_swagger.views import get_swagger_view
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),                                            # admin routes
-    url(r'^', include('apps.blog.urls')),                                       # apps routes
-    url(r'^summernote/', include('django_summernote.urls')),                    # text editor routes
-    url(r'^api/$', get_swagger_view(title='Toni Paricio API')),                 # API docs routes
-    url(r'^api/(?P<version>(v1|v2))/', include('apps.quotes.urls')),            # API routes
-    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),   # oauth routes
+    # admin routes
+    path('admin/', admin.site.urls),
+    # login routes
+    url(r'^', include(('apps.registration.urls', 'apps.registration'), namespace='registration')),
+    url(r'^', include(('apps.blog.urls', 'apps.blog'), namespace='blog')),
+    # text editor routes
+    url(r'^summernote/', include('django_summernote.urls')),
+    # API routes
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^api/$', get_swagger_view(title='Toni Paricio API')),
+    url(r'^api/(?P<version>(v1|v2))/', include('apps.quotes.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)               # static routes
